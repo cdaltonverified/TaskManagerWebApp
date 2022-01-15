@@ -1,0 +1,12 @@
+{% extends 'baseapp/template.html' %}
+{% block content %}
+
+
+<a href="{% url 'tasks' %}">Cancel</a>
+<form method="POST">
+    {% csrf_token%}
+    <p>Do you wish to proceed with the deletion of the task: "{{task}}"</p>
+    <input type="submit" value="Delete" class="button">
+</form>
+
+{% endblock content %}

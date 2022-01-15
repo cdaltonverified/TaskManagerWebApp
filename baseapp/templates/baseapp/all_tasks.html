@@ -1,0 +1,29 @@
+{% extends 'baseapp/template.html' %}
+{% block content %}
+
+<h1>[Task Management Web Application]</h1>
+<a href="{% url 'task-new' %}">CREATE NEW TASK</a>
+<br><br>
+<table>
+    <tr>
+        <th>All Tasks</th>
+        <th></th>
+    </tr>
+    {% for task in tasks %}
+    <tr>
+        <td>{{task.title}} 
+            {% if task.completed %}
+            <p> Finished</p>
+            {% else %}
+            <p> Not finished</p>
+            {% endif %}
+        </td>
+        <td><a href="{% url 'task-edit' task.id %}">View | Edit</a></td>
+        <td><a href="{% url 'task-delete' task.id %}">Delete</a></td>
+    </tr>
+    {% empty %}
+    <h3>No items in list</h3> 
+    {% endfor %}
+</table>
+
+{% endblock content %}
