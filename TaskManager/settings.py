@@ -128,5 +128,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # ie if Heroku server
 if 'DATABASE_URL' in os.environ:
-    from django.conf.urls import dj_database_url
+    import dj_database_url
     DATABASES = {'default': dj_database_url.config()}
